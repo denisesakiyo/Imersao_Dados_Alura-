@@ -83,6 +83,7 @@ with col_graf1:
             labels={'usd': 'Média salarial anual (USD)', 'cargo': ''}
         )
         grafico_cargos.update_layout(title_x=0.1, yaxis={'categoryorder':'total ascending'})
+        grafico_cargos.update_traces(marker_color="#73DD77") 
         st.plotly_chart(grafico_cargos, use_container_width=True)
     else:
         st.warning("Nenhum dado para exibir no gráfico de cargos.")
@@ -95,6 +96,12 @@ with col_graf2:
             nbins=30,
             title="Distribuição de salários anuais",
             labels={'usd': 'Faixa salarial (USD)', 'count': ''}
+        )
+        # Adiciona contorno 
+        grafico_hist.update_traces(
+        marker_color="#5994EE",
+        marker_line_color='black',  # Cor da borda
+        marker_line_width=0.5  
         )
         grafico_hist.update_layout(title_x=0.1)
         st.plotly_chart(grafico_hist, use_container_width=True)
@@ -112,14 +119,15 @@ with col_graf3:
             names='tipo_trabalho',
             values='quantidade',
             title='Proporção dos tipos de trabalho',
-            hole=0.5  
+            hole=0.5,
+            color_discrete_sequence=["#5994EE", '#73DD77', "#A5288A"]  
         )
         grafico_remoto.update_traces(textinfo='percent+label')
         grafico_remoto.update_layout(title_x=0.1)
         st.plotly_chart(grafico_remoto, use_container_width=True)
     else:
         st.warning("Nenhum dado para exibir no gráfico dos tipos de trabalho.")
-
+        
 with col_graf4:
     if not df_filtrado.empty:
         df_ds = df_filtrado[df_filtrado['cargo'] == 'Data Scientist']
