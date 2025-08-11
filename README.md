@@ -1,4 +1,4 @@
-# Imersao_Dados_Alura
+# Imersão Dados Alura
 Repositório com os códigos, análises e visualizações desenvolvidos durante a **Imersão Dados com Python** da [Alura](https://www.alura.com.br/).
 Análise de dados reais, visualizações e dashboard em Python criados na Imersão da Alura.
 
